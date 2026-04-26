@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fio - Subprocessors</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a1a; line-height: 1.7; max-width: 860px; margin: 0 auto; padding: 24px 20px 60px; background: #f8f8fa; }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+    h2 { font-size: 18px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; }
+    p, li { font-size: 15px; color: #333; margin-bottom: 12px; }
+    .date { font-size: 13px; color: #888; margin-bottom: 28px; }
+    a { color: #4A6FE5; }
+    .table-wrap { overflow-x: auto; margin-top: 8px; background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    thead { background: #f1f2f6; }
+    th, td { text-align: left; padding: 12px 14px; border-bottom: 1px solid #ececf1; vertical-align: top; }
+    th { font-weight: 600; font-size: 13px; color: #444; text-transform: uppercase; letter-spacing: 0.3px; }
+    tbody tr:last-child td { border-bottom: none; }
+    td.name { font-weight: 600; white-space: nowrap; }
+    .badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 999px; background: #fff4d6; color: #8a5a00; margin-left: 6px; vertical-align: middle; }
+    .footer-note { font-size: 13px; color: #666; margin-top: 28px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+  </style>
+</head>
+<body>
+  <h1>Subprocessors</h1>
+  <p class="date">Last updated: April 23, 2026</p>
+
+  <p>A "subprocessor" is a third-party company that processes user data on behalf of Fio to deliver the core service. We publish this list so users, reviewers, and data protection authorities can see exactly who touches your data and why. This disclosure supports our obligations under GDPR Article 28 and CCPA.</p>
+
+  <p>Each subprocessor below is under a Data Processing Agreement (DPA) or equivalent contractual terms that limit the use of your data to delivering the service described.</p>
+
+  <h2>Current subprocessors</h2>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Purpose</th>
+          <th>Data shared</th>
+          <th>DPA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="name">Supabase</td>
+          <td>United States</td>
+          <td>Hosting, authentication, database, file storage, edge functions</td>
+          <td>Account data (name, email, auth tokens), saved URLs, generated episodes, transcripts, audio files, cover art</td>
+          <td><a href="https://supabase.com/legal/dpa" target="_blank" rel="noopener">DPA</a></td>
+        </tr>
+        <tr>
+          <td class="name">Jina AI</td>
+          <td>United States</td>
+          <td>Extract clean text from URLs you save</td>
+          <td>The URL you saved (no account identifiers)</td>
+          <td><a href="https://jina.ai/legal/" target="_blank" rel="noopener">Terms</a></td>
+        </tr>
+        <tr>
+          <td class="name">Anthropic</td>
+          <td>United States</td>
+          <td>Claude model for podcast script generation</td>
+          <td>Extracted article text (no account identifiers). Zero-retention API; inputs not used for model training.</td>
+          <td><a href="https://www.anthropic.com/legal/commercial-terms" target="_blank" rel="noopener">Commercial Terms / DPA</a></td>
+        </tr>
+        <tr>
+          <td class="name">Microsoft Azure</td>
+          <td>United States / European Union</td>
+          <td>Primary text-to-speech (Azure Neural Speech)</td>
+          <td>Generated podcast script text (no account identifiers)</td>
+          <td><a href="https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA" target="_blank" rel="noopener">DPA</a></td>
+        </tr>
+        <tr>
+          <td class="name">OpenAI</td>
+          <td>United States</td>
+          <td>Fallback text-to-speech and fallback cover art generation</td>
+          <td>Generated podcast script text (for TTS) or a short image prompt derived from the episode (no account identifiers). Zero-retention API; inputs not used for model training.</td>
+          <td><a href="https://openai.com/policies/data-processing-addendum" target="_blank" rel="noopener">DPA</a></td>
+        </tr>
+        <tr>
+          <td class="name">Google</td>
+          <td>United States</td>
+          <td>Primary cover art generation (Gemini / Imagen)</td>
+          <td>A short image prompt derived from the episode (no account identifiers)</td>
+          <td><a href="https://cloud.google.com/terms/data-processing-addendum" target="_blank" rel="noopener">DPA</a></td>
+        </tr>
+        <tr>
+          <td class="name">Sentry <span class="badge">Rolling out in v1.0</span></td>
+          <td>United States</td>
+          <td>Crash reporting and error monitoring</td>
+          <td>Crash stack traces, device model, OS version, app version, anonymized user identifier</td>
+          <td><a href="https://sentry.io/legal/dpa/" target="_blank" rel="noopener">DPA</a></td>
+        </tr>
+        <tr>
+          <td class="name">PostHog <span class="badge">Rolling out in v1.0</span></td>
+          <td>United States / European Union</td>
+          <td>Product analytics and feature usage</td>
+          <td>Pseudonymous usage events (screens viewed, actions taken), device model, OS version, app version</td>
+          <td><a href="https://posthog.com/dpa" target="_blank" rel="noopener">DPA</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="footer-note">We notify users of material subprocessor changes via in-app notice or email at least 14 days before they take effect. To receive advance notice directly, email <a href="mailto:privacy@tryfio.app">privacy@tryfio.app</a>.</p>
+</body>
+</html>

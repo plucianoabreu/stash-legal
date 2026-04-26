@@ -11,70 +11,163 @@
     h2 { font-size: 18px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; }
     p, li { font-size: 15px; color: #333; margin-bottom: 12px; }
     ul { padding-left: 20px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 20px; font-size: 14px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid #e5e5ea; vertical-align: top; }
+    th { background: #eef0f5; font-weight: 600; color: #1a1a1a; }
     .date { font-size: 13px; color: #888; margin-bottom: 28px; }
     a { color: #4A6FE5; }
   </style>
 </head>
 <body>
   <h1>Privacy Policy</h1>
-  <p class="date">Effective date: April 21, 2026</p>
+  <p class="date">Last updated: April 23, 2026</p>
 
-  <p>Fio ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and share information when you use the Fio mobile application ("App").</p>
+  <p>Fio ("we", "our", "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, share, and retain information when you use the Fio mobile application ("App"). Fio is rated 17+ on the Apple App Store and is not intended for minors under 17.</p>
 
   <h2>1. Information We Collect</h2>
-  <p><strong>Account information:</strong> When you create an account, we collect your name, email address, and authentication credentials.</p>
-  <p><strong>Content you save:</strong> URLs and other content you add to your Fio. This data is stored securely on our servers to enable the App's features.</p>
-  <p><strong>Generated content:</strong> AI-generated podcast episodes, transcripts, and cover art created from your saved items.</p>
-  <p><strong>Usage data:</strong> Playback history, listening progress, and app interaction patterns to improve the experience.</p>
+  <p><strong>Account information:</strong> When you create an account, we collect your name, email address, and authentication credentials (password hash, or OAuth identifiers if you sign in with Apple or Google).</p>
+  <p><strong>Content you save:</strong> URLs you add to Fio and the extracted article text used to generate episodes.</p>
+  <p><strong>Generated content:</strong> AI-generated podcast episodes (audio files), transcripts, and cover art created from your saved items.</p>
+  <p><strong>Usage data:</strong> Playback history, listening progress, and in-app interaction patterns (via PostHog product analytics) used to improve the experience.</p>
+  <p><strong>Diagnostic data:</strong> Crash reports and error telemetry (via Sentry) to diagnose bugs. This data is scoped to technical context and does not include the content of your saved articles.</p>
+  <p><strong>Subscription data:</strong> If you purchase a subscription, Apple provides us with an anonymized transaction identifier and entitlement status. We do not receive your payment card information at any time.</p>
 
   <h2>2. How We Use Your Information</h2>
   <ul>
     <li>To provide and maintain the App's core functionality (saving items, generating podcasts, playback)</li>
     <li>To authenticate your identity and secure your account</li>
     <li>To generate personalized AI podcast episodes from your saved content</li>
-    <li>To improve and optimize the App's features</li>
+    <li>To diagnose bugs, prevent abuse, and improve reliability</li>
+    <li>To send service-related communications (account, security, billing)</li>
+  </ul>
+  <p>We do <strong>not</strong> use your saved content or generated episodes to train AI models, and we do not sell your personal data.</p>
+
+  <h2>3. Legal Basis for Processing (GDPR)</h2>
+  <p>If you are in the European Economic Area, the United Kingdom, or Switzerland, we process your personal data under the following lawful bases:</p>
+  <ul>
+    <li><strong>Contract (Art. 6(1)(b) GDPR):</strong> to deliver the App's core features (account, saving items, generating episodes, playback) that you request.</li>
+    <li><strong>Legitimate interests (Art. 6(1)(f)):</strong> to secure our service, prevent fraud and abuse, debug crashes, and measure product performance in an aggregated way.</li>
+    <li><strong>Consent (Art. 6(1)(a)):</strong> for AI processing of your saved content (you are asked before the first episode is generated) and for any non-essential analytics on applicable devices.</li>
+    <li><strong>Legal obligation (Art. 6(1)(c)):</strong> where we must retain records to comply with tax, accounting, or law-enforcement requirements.</li>
   </ul>
 
-  <h2>3. Third-Party Services</h2>
-  <p>We use the following third-party services to power the App's features:</p>
+  <h2>4. Third-Party Services (Subprocessors)</h2>
+  <p>We use a small number of trusted subprocessors to power Fio. A short summary is below; the <a href="subprocessors.html">full, up-to-date subprocessor list</a> (with locations and purpose) is maintained on a separate page.</p>
   <ul>
-    <li><strong>Supabase</strong> — authentication, database, and file storage</li>
-    <li><strong>Jina AI</strong> — extracts clean text from URLs you save</li>
+    <li><strong>Supabase</strong> — authentication, Postgres database, and file storage (episodes, transcripts, cover art)</li>
+    <li><strong>Jina AI</strong> — extracts clean article text from the URLs you save</li>
     <li><strong>Anthropic (Claude)</strong> — analyzes extracted text and writes the podcast script</li>
-    <li><strong>Microsoft Azure AI</strong> — primary text-to-speech (voice synthesis)</li>
+    <li><strong>Microsoft Azure AI Speech (Neural TTS)</strong> — primary text-to-speech (voice synthesis)</li>
     <li><strong>OpenAI</strong> — fallback text-to-speech and fallback cover art generation</li>
     <li><strong>Google (Gemini / Imagen)</strong> — primary cover art generation</li>
+    <li><strong>Sentry</strong> — crash reporting and error monitoring</li>
+    <li><strong>PostHog</strong> — product analytics (usage patterns, retention)</li>
   </ul>
-  <p>TTS and cover art providers are selected at runtime based on availability. Azure and Gemini are primary; OpenAI is the shared fallback.</p>
-  <p>Your saved URLs and extracted article text are sent to these services solely for the purpose of generating your podcast episodes. Your email address and name are never shared with AI processing services. We do not sell your data to any third party.</p>
+  <p>Your saved URLs and extracted article text are sent to AI subprocessors solely to generate your episodes. Your name and email are never shared with AI processing services. We do not sell your data to any third party.</p>
 
-  <h2>4. AI Processing Consent</h2>
-  <p>Before generating your first podcast episode, the App will ask for your explicit consent and explain which services process your content. You can allow or deny AI processing at any time. If you deny AI processing, you can still save and browse items — only podcast episode generation requires AI consent. You can change your preference at any time in Settings.</p>
+  <h2>5. International Data Transfers</h2>
+  <p>Fio's infrastructure is primarily located in the United States. If you access the App from outside the U.S., your personal data will be transferred to and processed in the U.S. and other countries where our subprocessors operate.</p>
+  <p>For transfers of EU/UK/Swiss personal data to the U.S., we rely on one or more of the following safeguards as applicable:</p>
+  <ul>
+    <li>The <strong>EU-U.S. Data Privacy Framework</strong> (and UK Extension / Swiss-U.S. DPF) for subprocessors that are self-certified;</li>
+    <li><strong>Standard Contractual Clauses</strong> (SCCs) approved by the European Commission, together with supplementary technical and organizational measures;</li>
+    <li>Your <strong>explicit consent</strong> where required.</li>
+  </ul>
+  <p>You can request a copy of the applicable SCCs by contacting us.</p>
 
-  <h2>5. Data Retention</h2>
-  <p>We retain your data for as long as your account is active. When you delete your account, all associated data (saved items, episodes, transcripts, audio files, and cover art) is permanently deleted from our servers within 30 days.</p>
+  <h2>6. AI Processing Consent</h2>
+  <p>Before generating your first podcast episode, the App asks for your explicit consent and explains which services process your content. You can allow or deny AI processing at any time in Settings. If you deny AI processing, you can still save and browse items — only episode generation requires AI consent.</p>
 
-  <h2>6. Your Rights</h2>
-  <p>You have the right to:</p>
+  <h2>7. Data Retention</h2>
+  <p>We retain data only as long as needed for the purposes described in this Policy. The table below summarizes retention by category:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Data category</th>
+        <th>Retention period</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Account information (name, email, auth credentials)</td>
+        <td>For the life of your account. Deleted within 30 days of account deletion.</td>
+      </tr>
+      <tr>
+        <td>Saved URLs</td>
+        <td>Until you delete the item, or within 30 days of account deletion.</td>
+      </tr>
+      <tr>
+        <td>Extracted article text (used to generate episodes)</td>
+        <td><strong>Purged within 24 hours</strong> of episode generation. Not used for model training.</td>
+      </tr>
+      <tr>
+        <td>Generated episodes, transcripts, cover art</td>
+        <td>Until you delete the episode, or within 30 days of account deletion.</td>
+      </tr>
+      <tr>
+        <td>Usage / playback data (PostHog)</td>
+        <td>Up to 12 months from event date, then aggregated or deleted.</td>
+      </tr>
+      <tr>
+        <td>Crash / error logs (Sentry)</td>
+        <td>90 days.</td>
+      </tr>
+      <tr>
+        <td>Subscription and billing records</td>
+        <td>Up to 7 years after the transaction, to comply with tax and accounting obligations.</td>
+      </tr>
+      <tr>
+        <td>Encrypted backups</td>
+        <td>Rolling 35-day window, after which backups are overwritten.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>When you delete your account, all associated data is removed from active systems within 30 days and from encrypted backups within the backup-rotation window described above.</p>
+
+  <h2>8. Your Rights (General)</h2>
+  <p>Subject to applicable law, you have the right to:</p>
   <ul>
     <li><strong>Access</strong> your personal data stored in the App</li>
-    <li><strong>Delete</strong> your account and all associated data at any time via Settings</li>
-    <li><strong>Export</strong> your data upon request</li>
-    <li><strong>Opt out</strong> of non-essential data collection</li>
+    <li><strong>Correct</strong> inaccurate personal data</li>
+    <li><strong>Delete</strong> your account and all associated data via Settings</li>
+    <li><strong>Export</strong> a copy of your personal data in a portable format, following a verified request</li>
+    <li><strong>Object to or restrict</strong> processing based on legitimate interests</li>
+    <li><strong>Withdraw consent</strong> at any time where processing is based on consent</li>
+    <li><strong>Lodge a complaint</strong> with your local data-protection authority</li>
   </ul>
-  <p>If you are a resident of the European Economic Area (GDPR) or California (CCPA), you have additional rights including the right to data portability and the right to restrict processing. Contact us to exercise these rights.</p>
+  <p>To exercise any of these rights, contact us at <a href="mailto:privacy@tryfio.app">privacy@tryfio.app</a>. We will respond within the time limits required by your local law (for example, one month under GDPR, subject to extension for complex requests).</p>
 
-  <h2>7. Children's Privacy</h2>
-  <p>Fio is not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that a child under 13 has provided us with personal data, we will delete it promptly.</p>
+  <h2>9. California Residents (CCPA / CPRA)</h2>
+  <p>If you are a California resident, the California Consumer Privacy Act, as amended by the CPRA, gives you the following rights:</p>
+  <ul>
+    <li><strong>Right to know</strong> what personal information we collect, use, disclose, and (if applicable) sell or share</li>
+    <li><strong>Right to delete</strong> personal information we have collected from you</li>
+    <li><strong>Right to correct</strong> inaccurate personal information</li>
+    <li><strong>Right to opt out</strong> of the sale or sharing of personal information for cross-context behavioral advertising</li>
+    <li><strong>Right to limit</strong> use and disclosure of sensitive personal information</li>
+    <li><strong>Right to non-discrimination</strong> for exercising any of the above rights</li>
+  </ul>
+  <p><strong>We do not sell or share your personal information</strong> as those terms are defined under the CCPA/CPRA, and we do not use or disclose sensitive personal information for purposes other than those permitted by §1798.121.</p>
+  <p><strong>Global Privacy Control (GPC):</strong> our web properties treat a valid GPC signal as a request to opt out of sale/sharing. Because Fio does not sell or share personal information, this has no practical effect on data flows, but the signal is recorded.</p>
+  <p>To exercise your California rights, email <a href="mailto:privacy@tryfio.app">privacy@tryfio.app</a> with "California Privacy Request" in the subject. We will verify your request using information already associated with your account. Authorized agents may submit requests with written permission and proof of identity.</p>
 
-  <h2>8. Security</h2>
-  <p>We implement industry-standard security measures to protect your data, including encrypted data transmission (TLS), secure authentication, and access controls on our infrastructure.</p>
+  <h2>10. Children's Privacy</h2>
+  <p>Fio is rated <strong>17+</strong> on the Apple App Store and is intended only for users 17 and older. We do not knowingly collect personal information from anyone under 17. If we learn that we have collected personal information from a user under 17, we will delete it promptly. Parents or guardians who believe a minor has created an account can contact us at <a href="mailto:privacy@tryfio.app">privacy@tryfio.app</a>.</p>
 
-  <h2>9. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy from time to time. We will notify you of significant changes via the App or email.</p>
+  <h2>11. Security</h2>
+  <p>We implement industry-standard security measures to protect your data, including encrypted data transmission (TLS 1.2+), encryption at rest for file storage and backups, scoped access controls on our infrastructure, and least-privilege service keys. No system is perfectly secure, and we cannot guarantee absolute security.</p>
 
-  <h2>10. Contact Us</h2>
-  <p>If you have questions about this Privacy Policy, contact us at:</p>
-  <p><a href="mailto:support@tryfio.app">support@tryfio.app</a></p>
+  <h2>12. Security Incident Notification</h2>
+  <p>If we become aware of a personal data breach that is likely to result in a risk to your rights and freedoms, we will notify our lead supervisory authority without undue delay and, where feasible, within <strong>72 hours</strong> of becoming aware, in line with Article 33 of the GDPR. Where required by law, we will also notify affected users without undue delay and describe the nature of the breach, the likely consequences, and the measures taken or proposed to address it.</p>
+
+  <h2>13. Data Protection Officer & EU Representative</h2>
+  <p>Fio is an independent side project operated by a single developer. Based on the nature and scale of our processing, we do not meet the conditions in Article 37 GDPR that would require the appointment of a formal Data Protection Officer, and we do not meet the thresholds that require the formal designation of an Article 27 EU Representative. You can reach our privacy contact directly at <a href="mailto:privacy@tryfio.app">privacy@tryfio.app</a>. If EU-facing volume grows beyond the Article 27 thresholds, we will appoint a representative and update this section.</p>
+
+  <h2>14. Changes to This Policy</h2>
+  <p>We may update this Privacy Policy from time to time. We will notify you of material changes via the App or by email, and we will update the "Last updated" date at the top of this page.</p>
+
+  <h2>15. Contact Us</h2>
+  <p>For privacy questions or to exercise your rights: <a href="mailto:privacy@tryfio.app">privacy@tryfio.app</a></p>
+  <p>For general support: <a href="mailto:support@tryfio.app">support@tryfio.app</a></p>
 </body>
 </html>
